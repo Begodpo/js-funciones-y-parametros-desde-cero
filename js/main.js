@@ -1,20 +1,20 @@
 "use strict";
 
-//Ahora tenemos una función que nos escribe patata 10 veces en la consola cada vez que la llamemos, pero eso, dentro de lo que cabe, es poco útil porque ahora que sé que puedo escribir una palabra 10 veces en la consola lo que me gustaría es poder escribir palabras diferentes.
+/*Joé, si puedo pasar a mi función la palabra que quiero escribir, pues voy a querer más: ahora mismo si le paso una palabra me la escribe 10 veces, pero y si quisiese que me la escribiese diferente número de veces cada vez?
 
-//Entonces, vamos a modificar nuestra función ten() para que acepte un parámetro word, y vamos a llamar a la función 3 veces, pasándole cada vez una palabra diferente:
+Qué tendría que hacer para que al llamar a mi función de estas formas escribiese las palabras el numero de veces que le diga?
 
-// ten('Patata`);
-// ten('Aguacate`);
-// ten('Pizza');
+ten('patata', 10);
+ten('aguacate', 7);
+ten('Pizza', 50);
 
-const times = 10;
+Una vez conseguido renombraremos la función ten a writeThis;*/
 
-function ten(word) {
+function writeThis(word, times) {
   for (let i = 0; i < times; i++) {
-    console.log(word);
+    console.log(word, times);
   }
 }
-ten("Patata");
-ten("Aguacate");
-ten("Pizza");
+writeThis("Patata", 10);
+writeThis("Aguacate", 7);
+writeThis("Pizza", 50);
