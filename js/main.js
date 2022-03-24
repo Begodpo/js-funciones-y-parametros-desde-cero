@@ -1,15 +1,20 @@
 "use strict";
 
-// Vamos a crear un repo por persona, y vamos a hacer una función que escriba patata 10 veces en la consola la función se llamará ten()
+//Ahora tenemos una función que nos escribe patata 10 veces en la consola cada vez que la llamemos, pero eso, dentro de lo que cabe, es poco útil porque ahora que sé que puedo escribir una palabra 10 veces en la consola lo que me gustaría es poder escribir palabras diferentes.
 
-console.log("ready");
+//Entonces, vamos a modificar nuestra función ten() para que acepte un parámetro word, y vamos a llamar a la función 3 veces, pasándole cada vez una palabra diferente:
 
-const word = "patata";
+// ten('Patata`);
+// ten('Aguacate`);
+// ten('Pizza');
+
 const times = 10;
 
-function ten() {
+function ten(word) {
   for (let i = 0; i < times; i++) {
     console.log(word);
   }
 }
-ten();
+ten("Patata");
+ten("Aguacate");
+ten("Pizza");
