@@ -1,47 +1,12 @@
 "use strict";
 
-/*Ahora ya tenemos un poco más controlado el invento y parece que podemos controlar diferentes resultados de funciones según los valores que le pasemos a sus parámetros…
+/*Ahora que hemos conseguido eso, aparece una compañera y nos dice: ey, si podéis hacer eso, yo tengo una API que me devuelve algo muy parecido, podría pasaros la url para que en lugar de tirar de un array metido a fuego y azufre en el código, tirásemos de los datos que nos devuelve un servidor. ¿sí?
 
-Alguien se ha dado cuenta de que estamos escribiendo las palabras que queremos y ha dicho: Ey, yo no tengo una o dos palabras, pero tengo una lista de palabras y números. ¿Me la podríais escribir?
+URL: https://beta.adalab.es/ejercicios-extra/js-funciones-y-parametros-desde-cero/data.json
 
-La lista es la siguiente:
-const myWordList =  [
-  {
-    text: 'Pencil',
-    total: 6
-  },
-  {
-    text: 'Thermo',
-    total: 2
-  },
-  {
-    text: 'TV',
-    total: 8
-  },
-  {
-    text: 'Phone',
-    total: 4
-  }
-];
-Para ello crearemos una nueva función writeMyArray que aceptará como parámetro un array, lo recorrerá y escribirá cada palabra el número de veces indicado utilizando nuestra función writeThis.*/
-const myWordList = [
-  {
-    text: "Pencil",
-    total: 6,
-  },
-  {
-    text: "Thermo",
-    total: 2,
-  },
-  {
-    text: "TV",
-    total: 8,
-  },
-  {
-    text: "Phone",
-    total: 4,
-  },
-];
+Para ello tenemos que saber usar fetch.
+
+¡Al turrón!*/
 
 function writeThis(word, times) {
   for (let i = 0; i < times; i++) {
@@ -54,4 +19,12 @@ function writeMyArray(array) {
   }
 }
 
-writeMyArray(myWordList);
+const getDataFromApi = () => {
+  fetch(
+    "https://beta.adalab.es/ejercicios-extra/js-funciones-y-parametros-desde-cero/data.json"
+  )
+    .then((response) => response.json())
+    .then((data) => writeMyArray(data.results));
+};
+
+getDataFromApi();
