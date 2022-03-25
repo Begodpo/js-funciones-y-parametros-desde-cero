@@ -1,31 +1,57 @@
 "use strict";
 
-/*Ahora hemos visto que a una función le podemos pasar datos en crudo a través de los parámetros. Además podríamos pasar estos datos si ya los tuviésemos almacenados en constantes e incluso funciones que nos devuelvan datos!!!
+/*Ahora ya tenemos un poco más controlado el invento y parece que podemos controlar diferentes resultados de funciones según los valores que le pasemos a sus parámetros…
 
-Qué locura! Cómo es eso de la funciones? Vamos a rescatar a nuestra querida getRandomNumber() del ejercicio de evaluación intermedia, para quien no se acuerde era algo como:
+Alguien se ha dado cuenta de que estamos escribiendo las palabras que queremos y ha dicho: Ey, yo no tengo una o dos palabras, pero tengo una lista de palabras y números. ¿Me la podríais escribir?
 
-function getRandomNumber(max) {
-  return Math.ceil(Math.random() * max);
-}
+La lista es la siguiente:
+const myWordList =  [
+  {
+    text: 'Pencil',
+    total: 6
+  },
+  {
+    text: 'Thermo',
+    total: 2
+  },
+  {
+    text: 'TV',
+    total: 8
+  },
+  {
+    text: 'Phone',
+    total: 4
+  }
+];
+Para ello crearemos una nueva función writeMyArray que aceptará como parámetro un array, lo recorrerá y escribirá cada palabra el número de veces indicado utilizando nuestra función writeThis.*/
+const myWordList = [
+  {
+    text: "Pencil",
+    total: 6,
+  },
+  {
+    text: "Thermo",
+    total: 2,
+  },
+  {
+    text: "TV",
+    total: 8,
+  },
+  {
+    text: "Phone",
+    total: 4,
+  },
+];
 
-Esta función generaba un número aleatorio de 0 al número que le pasemos por parámetro.
-
-Qué le tendríamos que escribir en nuestra función writeThis para que nos escribiese las palabras que le pasamos un número random de veces de 0 a 10?
-
-Pista:
-
-writeThis('patata',?);
-writeThis('aguacate'?);
-writeThis('pizza',?);*/
-
-function getRandomNumber(max) {
-  return Math.ceil(Math.random() * max);
-}
-function writeThis(word) {
-  for (let i = 0; i < getRandomNumber(10); i++) {
+function writeThis(word, times) {
+  for (let i = 0; i < times; i++) {
     console.log(word);
   }
 }
-writeThis("Patata");
-writeThis("Aguacate");
-writeThis("Pizza");
+function writeMyArray(array) {
+  for (const item of array) {
+    writeThis(item.text, item.total);
+  }
+}
+
+writeMyArray(myWordList);
